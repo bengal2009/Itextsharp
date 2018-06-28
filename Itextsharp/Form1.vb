@@ -11,9 +11,10 @@ Public Class Form1
         Dim WorkingFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
 
         ''//The file that we are creating
-        Dim WorkingFile = Path.Combine(WorkingFolder, "Output.pdf")
+        Dim WorkingFile = System.IO.Path.Combine(WorkingFolder, "Output.pdf")
         Debug.Print("Current Directory:" + WorkingFolder)
-
+        Dim arial As BaseFont = BaseFont.CreateFont("c:\windows\fonts\KAIU.TTF", BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+        Dim Font As New Font(arial, 36)
         ''//Create our file with an exclusive writer lock
         Using FS As New FileStream(WorkingFile, FileMode.Create, FileAccess.Write, FileShare.None)
             ''//Create our PDF document
@@ -27,8 +28,8 @@ Public Class Form1
                     Doc.NewPage()
 
                     ''//Add a simple paragraph with text
-                    Doc.Add(New Paragraph("Hello World"))
-                    Doc.Add(New Paragraph("這是測試"))
+                    Doc.Add(New Paragraph("Hello World", Font))
+                    Doc.Add(New Paragraph("這是測試", Font))
 
                     ''//Close our document
                     Doc.Close()
