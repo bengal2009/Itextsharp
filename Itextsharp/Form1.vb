@@ -56,7 +56,14 @@ Public Class Form1
                     ''//Close our document
 
                     p2.Add(c1)
+                    p2.Add("11111")
+                    Listest.Add("1")
+                    Listest.Add("2")
+                    Listest.Add("3")
+
+
                     Doc.Add(p2)
+                    Doc.Add(Listest)
                     Doc.Close()
                 End Using
             End Using
@@ -67,4 +74,7 @@ Public Class Form1
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 End Class
